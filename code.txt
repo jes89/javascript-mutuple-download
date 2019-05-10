@@ -4,37 +4,43 @@
 
 
 <script>
-        var cnt = 0;
+    var cnt = 0;
+
+    
        
-        function downLoad() {
+    function downLoad() {
          
-            var QR_CODE_IMG = document.getElementById("QR_CODE_IMG");
-            var reqUrl = "https://chart.googleapis.com/chart?cht=qr&chs=500x500&chl=" + encodeURIComponent("https://cafe.naver.com") + cnt;
+        var QR_CODE_IMG = document.getElementById("QR_CODE_IMG");
+        var reqUrl = "https://chart.googleapis.com/chart?cht=qr&chs=500x500&chl=" + encodeURIComponent("https://cafe.naver.com") + cnt;
 
-            QR_CODE_IMG.src = reqUrl;
+        QR_CODE_IMG.src = reqUrl;
 
-            QR_CODE_IMG.onload = function() {
-                var el = document.createElement('a');
-                let canvas = document.createElement('canvas');
-                let ctx = canvas.getContext('2d');
-                let fileType = "image/png";
+        QR_CODE_IMG.onload = function() {
+            var el = document.createElement('a');
+            let canvas = document.createElement('canvas');
+            let ctx = canvas.getContext('2d');
+            let fileType = "image/png";
 
-                canvas.width = 500;
-                canvas.height = 500;
+            canvas.width = 500;
+            canvas.height = 500;
 
-                ctx.drawImage(this, 0, 0, 500, 500);
+            ctx.drawImage(this, 0, 0, 500, 500);
 
-                el.setAttribute("download", cnt + ".jpeg");
-                el.setAttribute("href", canvas.toDataURL(fileType));
+            el.setAttribute("download", cnt + ".jpeg");
+            el.setAttribute("href", canvas.toDataURL(fileType));
 
-                el.click();
+            el.click();
                 
-                cnt++;
+            cnt++;
                 
-                setTimeout(()=>{
-                    downLoad();
-                },500);
+            if(cnt >= 3){
+                return;
             }
+
+            setTimeout(()=>{
+                downLoad();
+            },500);
         }
+    }
 
     </script>
