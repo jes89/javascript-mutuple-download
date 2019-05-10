@@ -1,4 +1,8 @@
+
+
+
 <a href="javascript:downLoad();">excute download</a>
+
 <img id="QR_CODE_IMG" width="500" height="500" crossOrigin="Anonymous" style="display:none;" />
         
 
