@@ -5,8 +5,11 @@
 
 <script>
         var cnt = 0;
-        var obj = [{"location":"1","code":"10"},{"location":"2","code":"D0503"},{"location":"3","code":"10"},{"location":"4","code":"D1112"},{"location":"5","code":"10"},{"location":"6","code":"D0906"},{"location":"7","code":"10"},{"location":"8","code":"D1612"},{"location":"9","code":"10"},{"location":"10","code":"D0703"}];
-
+      
+       
+<script>
+        var cnt = 0;
+       
         function downLoad() {
          
             var QR_CODE_IMG = document.getElementById("QR_CODE_IMG");
@@ -25,7 +28,7 @@
 
                 ctx.drawImage(this, 0, 0, 500, 500);
 
-                el.setAttribute("download", obj[cnt]["location"] + "(" + obj[cnt]["code"] + ")" + ".jpeg");
+                el.setAttribute("download", cnt + ".jpeg");
                 el.setAttribute("href", canvas.toDataURL(fileType));
 
                 el.click();
