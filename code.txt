@@ -10,8 +10,6 @@
 <script>
     var cnt = 0;
 
-    
-       
     function downLoad() {
          
         var QR_CODE_IMG = document.getElementById("QR_CODE_IMG");
