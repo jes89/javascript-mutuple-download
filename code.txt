@@ -1,11 +1,9 @@
-<a href="javascript:downLoad();">
-            excute download
-        </a>
-        <img id="QR_CODE_IMG" width="500" height="500" crossOrigin="Anonymous" style="display:none;" />
+<a href="javascript:downLoad();">excute download</a>
+<img id="QR_CODE_IMG" width="500" height="500" crossOrigin="Anonymous" style="display:none;" />
         
 
 
-    <script>
+<script>
 
         var cnt = 0;
         var obj = [{"location":"1","code":"10"},{"location":"2","code":"D0503"},{"location":"3","code":"10"},{"location":"4","code":"D1112"},{"location":"5","code":"10"},{"location":"6","code":"D0906"},{"location":"7","code":"10"},{"location":"8","code":"D1612"},{"location":"9","code":"10"},{"location":"10","code":"D0703"}];
@@ -19,6 +17,7 @@
             QR_CODE_IMG.src = reqUrl;
 
             QR_CODE_IMG.onload = function() {
+                var el = document.createElement('a');
                 let canvas = document.createElement('canvas');
                 let ctx = canvas.getContext('2d');
                 let fileType = "image/png";
@@ -28,21 +27,16 @@
 
                 ctx.drawImage(this, 0, 0, 500, 500);
 
-                var a = document.createElement('a');
+                el.setAttribute("download", obj[cnt]["location"] + "(" + obj[cnt]["code"] + ")" + ".jpeg");
+                el.setAttribute("href", canvas.toDataURL(fileType));
 
-
-                a.setAttribute("download", obj[cnt]["location"] + "(" + obj[cnt]["code"] + ")" + ".jpeg");
-                a.setAttribute("href", canvas.toDataURL(fileType));
-
-                
-                a.click();
+                el.click();
                 
                 cnt++;
                 
                 setTimeout(()=>{
                     downLoad();
                 },500);
-
             }
         }
 
