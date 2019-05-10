@@ -4,15 +4,13 @@
 
 
 <script>
-
         var cnt = 0;
         var obj = [{"location":"1","code":"10"},{"location":"2","code":"D0503"},{"location":"3","code":"10"},{"location":"4","code":"D1112"},{"location":"5","code":"10"},{"location":"6","code":"D0906"},{"location":"7","code":"10"},{"location":"8","code":"D1612"},{"location":"9","code":"10"},{"location":"10","code":"D0703"}];
-
 
         function downLoad() {
          
             var QR_CODE_IMG = document.getElementById("QR_CODE_IMG");
-            var reqUrl = "https://chart.googleapis.com/chart?cht=qr&chs=500x500&chl=" + encodeURIComponent("https://cafe.naver.com");
+            var reqUrl = "https://chart.googleapis.com/chart?cht=qr&chs=500x500&chl=" + encodeURIComponent("https://cafe.naver.com") + cnt;
 
             QR_CODE_IMG.src = reqUrl;
 
